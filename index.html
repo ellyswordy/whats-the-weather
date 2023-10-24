@@ -10,6 +10,9 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <title>Weather App</title>
@@ -39,7 +42,7 @@
             </div>
             <div class="col-3">
               <button
-                class="btn btn-success w-100"
+                class="btn btn-dark w-100"
                 id="current-location-button"
               >
                 Current
@@ -49,7 +52,7 @@
         </form>
         <h1 id="city"></h1>
         <ul>
-          <li id="date"></li>
+          <li class="date" id="date"></li>
           <li id="description"></li>
         </ul>
         <div class="row">
