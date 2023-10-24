@@ -54,3 +54,10 @@ body {
     margin-bottom: 20px;
   }
   
+  .code-disclaimer {
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    padding: 8px
+  }
