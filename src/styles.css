@@ -37,12 +37,8 @@ body {
   
 
   .large-weather {
-    height: 60px;
-    width: 60px;
-    margin-right: 20px;
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-bottom: 10px
+    height: 130px;
+    width: 130px;
   }
   
   .temperature {
@@ -50,6 +46,17 @@ body {
     font-size: 64px;
     font-weight: 500;
     line-height: 1;
+    padding: 0;
+  }
+
+  .temp {
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 20px;
+  }
+
+  .lw {
+    padding: 0
   }
   
   .units {
