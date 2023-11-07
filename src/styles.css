@@ -76,4 +76,22 @@ body {
     padding: 8px
   }
 
+  .weather-forecast {
+    text-align: center;
+  }
+
+  .weather-forecast-date {
+    font-size: 16px;
+    opacity: 0.5;
+  }
+
+  .weather-forecast-temp {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  .wft-min {
+    opacity: 0.5;
+  }
+
   
