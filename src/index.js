@@ -24,8 +24,8 @@ function formatDate(date) {
   }
   
   function displayWeatherCondition(response) {
-    let city = document.querySelector("#city");
-    city.innerHTML = response.data.name;
+    let cityElement = document.querySelector("#city");
+    cityElement.innerHTML = response.data.name;
     celsiusTemperature = response.data.main.temp;
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(
@@ -39,6 +39,8 @@ function formatDate(date) {
     document.querySelector("#description").innerHTML =
       response.data.weather[0].main;
     document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    
+    getProjected(response.data.name);
   }
   
   function searchCity(city) {
@@ -91,7 +93,7 @@ function formatDate(date) {
   let currentLocationButton = document.querySelector("#current-location-button");
   currentLocationButton.addEventListener("click", getCurrentLocation);
   
-  searchCity("New York");
+
   
 
 
@@ -102,7 +104,15 @@ function formatDate(date) {
   celsuisLink.addEventListener("click", displayCelsius);
 
 
-function displayProjected() {
+function getProjected(city) {
+  let apiKey = "fo870519041f3000e04aab3636t32527";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayProjected);
+}
+
+
+function displayProjected(response) {
+  console.log(response.data);
   let projectedElement = document.querySelector("#projected");
   
   let days = ['Thu', 'Fri', 'Sat', 'Sun', 'Mon'];
@@ -135,6 +145,7 @@ function displayProjected() {
 
 }
 
-displayProjected();
+searchCity("Lisbon");
+
 
 
