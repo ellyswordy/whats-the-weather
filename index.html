@@ -21,6 +21,7 @@
   <body>
     <div class="container">
       <div class="weather-app">
+
         <form class="search-form" id="search-form">
           <div class="row">
             <div class="col-6">
@@ -50,36 +51,45 @@
             </div>
           </div>
         </form>
+
         <div class = "weather-today">
          <div class="row">
-          <div class="col-3">
-            <h1 id="city"></h1>
-            <ul>
+           <div class="col-3">
+             <h1 id="city"></h1>
+             <ul>
               <li class="date" id="date"></li>
               <li id="description"></li>
               <li>Humidity: <span id="humidity"></span>%</li>
               <li>Wind: <span id="wind"></span> km/h</li>
-            </ul>
-          </div>
-          <div class="col-2 temp">
+             </ul>
+           </div>
+           <div class="col-2 temp">
             <span class="temperature" id="temperature"></span
                   ><span class="units">
                     <a href="#" id="celsius">°C</a> | 
                   <a href="#" id="fahrenheit">°F</a></span>
-          </div>
-          <div class="col-7 lw">
-            <img src=""
+           </div>
+           <div class="col-7 lw">
+              <img src=""
               alt="rainy" 
               width="50px" 
               class="large-weather"
               id="icon">
+           </div>
           </div>
-         </div>
         </div> 
+
+        
         <div class = "weather-forecast" id="projected">
+          <div class="row">
+          </div>
         </div>
+        
+
       </div>
     </div>
+
+
     <div>
       <a href="https://github.com/ellyswordy" class="code-disclaimer"> Coded by Elly Swordy 2023 </a>
     </div>

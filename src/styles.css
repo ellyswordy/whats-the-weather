@@ -32,7 +32,7 @@ body {
     padding: 15px;
     margin: 20px auto;
     border-radius: 10px;
-    max-width: 800px;
+    max-width: 700px;
   }
   
 
@@ -77,12 +77,17 @@ body {
   }
 
   .weather-forecast {
+    display: block;
+    margin: 0 auto;
     text-align: center;
+
+
   }
 
   .weather-forecast-date {
     font-size: 16px;
     opacity: 0.5;
+  
   }
 
   .weather-forecast-temp {

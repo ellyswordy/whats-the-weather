@@ -54,6 +54,15 @@ function formatDate(date) {
     let city = document.querySelector("#city-input").value;
     searchCity(city);
   }
+
+  function formatDay(timestamp) {
+    
+    let date = new Date(timestamp * 1000);
+    console.log(timestamp,date)
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return days[date.getDay()];
+
+  }
   
   function searchLocation(position) {
     let apiKey = "cabdbda40038ba7d1165b953b1c7bd6c";
@@ -104,6 +113,8 @@ function formatDate(date) {
   celsuisLink.addEventListener("click", displayCelsius);
 
 
+
+
 function getProjected(city) {
   let apiKey = "fo870519041f3000e04aab3636t32527";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -111,35 +122,46 @@ function getProjected(city) {
 }
 
 
-function displayProjected(response) {
+
+function displayProjected(response) {  
+  
   console.log(response.data);
   let projectedElement = document.querySelector("#projected");
   
-  let days = ['Thu', 'Fri', 'Sat', 'Sun', 'Mon'];
-  let projectedHtml = "";
+  
+  let projectedHtml = '<div class = "row">';
 
-  days.forEach(function(day) {
+  console.log('response.data.daily',response.data.daily)
+
+  response.data.daily.forEach(function(day, index) {
+
+   if (index < 5) { 
    projectedHtml = 
      projectedHtml +
-     ` 
-        <div class="weather-forecast-date">
-                ${day}
+     `
+       <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(day.time)}
         </div>
-        <img
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
-          alt=""
-          width="42"
-        />
+        <div class="weather-forecast-icon">
+            <img
+             src=${day.condition.icon_url}
+             alt=""
+             width="42"
+             />
+        </div>
         <div class="weather-forecast-temp">
-         <span class="wft-min">
-           18°
-         </span>
-         <span class="wft-max">
-           25°
-         </span>
+              <span class="wft-min">
+                ${Math.round(day.temperature.minimum)}
+              </span>
+              <span class="wft-max">
+                ${Math.round(day.temperature.maximum)}
+              </span>
         </div>
+      </div>
+  
     `;
-   });
+   }
+  });
   
   projectedElement.innerHTML = projectedHtml;
 
